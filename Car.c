@@ -286,6 +286,5 @@ void Diode(){
             fallingedgepos = timercount + Timer_A_getCaptureCompareCount(TIMER_A2_BASE,TIMER_A_CAPTURECOMPARE_REGISTER_2);
 
         }
-        // Otherwise if the Right Encoder triggered...
 
 }

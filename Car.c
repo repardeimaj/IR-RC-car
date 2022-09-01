@@ -4,17 +4,10 @@
 // RIN: 662020130
 // Name: Jamie Draper
 // RIN: 662024490
-// This is the base project for several activities and labs throughout
-// the course.  The outline provided below isn't necessarily *required*
-// by a C program; however, this format is required within ENGR-2350
-// to ease debugging/grading by the staff.
 /**********************************************************************/
 
-// We'll always add this include statement. This basically takes the
-// code contained within the "engr_2350_msp432.h" file and adds it here.
-#include "engr2350_msp432.h"
 
-// Add function prototypes here, as needed.
+#include "engr2350_msp432.h"
 
 void Timer_Init();
 void GPIO_Init();
@@ -24,7 +17,6 @@ void T1_100ms_ISR();
 void Diode();
 
 
-// Add global variables here, as needed
 Timer_A_UpModeConfig timerconfig;
 uint8_t time[4];
 uint8_t toggle = 0;
@@ -82,13 +74,9 @@ int16_t falling = 0;
 
 int main(void) /* Main Function */
 {
-    // Add local variables here, as needed.
 
-    // We always call the "SysInit()" first to set up the microcontroller
-    // for how we are going to use it.
     SysInit();
 
-    // Place initialization code (or run-once) code here
     Timer_Init();
     GPIO_Init();
 
@@ -97,7 +85,6 @@ int main(void) /* Main Function */
     GPIO_setOutputHighOnPin(GPIO_PORT_P3,GPIO_PIN6|GPIO_PIN7);   // Motors are ON
 
     while(1){
-        // Place code that runs continuously in here
         if(run_control){    // If 100 ms has passed
             run_control = 0;    // Reset the 100 ms flag
             printf("%f\r\n",duty);
@@ -131,7 +118,6 @@ int main(void) /* Main Function */
     }
 }
 
-// Add function declarations here as needed
 void Timer_Init(){
     timerconfig.clockSource = TIMER_A_CLOCKSOURCE_SMCLK;
     timerconfig.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_64;
@@ -303,5 +289,3 @@ void Diode(){
         // Otherwise if the Right Encoder triggered...
 
 }
-
-// Add interrupt functions last so they are easy to find

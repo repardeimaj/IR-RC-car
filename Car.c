@@ -1,5 +1,5 @@
 /**********************************************************************/
-// ENGR-2350 Template Project
+// ENGR-2350 Final Project
 // Name: Kendall Gordinier
 // RIN: 662020130
 // Name: Jamie Draper
